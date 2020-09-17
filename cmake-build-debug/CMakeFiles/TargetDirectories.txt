@@ -1,0 +1,3 @@
+/Users/amado-developer/College/Graphics/SoftwareRenderer-Graphics/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/amado-developer/College/Graphics/SoftwareRenderer-Graphics/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/amado-developer/College/Graphics/SoftwareRenderer-Graphics/cmake-build-debug/CMakeFiles/SoftwareRenderer-Graphics.dir
