@@ -19,6 +19,8 @@ class Texture
         Texture(char* path);
         void read();
         vector<double> getColor(double tx, double ty);
+
+    vector<double> getBackgroundColor(double tx, double ty);
 };
 
 

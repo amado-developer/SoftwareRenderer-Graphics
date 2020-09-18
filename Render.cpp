@@ -13,10 +13,6 @@
 #include "Math.h"
 using namespace std;
 
-Render::Render(Texture texture) : texture(texture) {
-    this->texture = texture;
-}
-
 void Render::setTexture(Texture texture)
 {
     this->texture = texture;
@@ -117,7 +113,6 @@ void Render::setActiveRender(vector<double>(*activeShader)
 }
 void Render::glColor(double r, double g, double b)
 {
-
     pointColor[2] = (unsigned char) (r * 255.0);
     pointColor[1] = (unsigned char) (g * 255.0);
     pointColor[0] = (unsigned char) (b * 255.0);
@@ -332,10 +327,6 @@ void Render::glTriangle(tuple<double, double, double> A, tuple<double, double, d
             if( z < zbuffer[x][y] && z<=1 && z>=-1)
             {
                 vector<double> color = this->activeShader(u, v, w, tA, tB, tC, nA, nB, nC,this->texture, this->light);
-//                cout<<color[0] * 255<<" "<<color[1] * 255<<" "<<color[2] * 255<<endl;
-
-
-//                cout<<color.at(0)<<" "<<color.at(1)<<" " <<
                 this->glColor(color.at(0), color.at(1), color.at(2));
                 glPoint(x, y);
                 zbuffer[x][y] = z;
@@ -548,19 +539,6 @@ void Render::createProjectionMatrix(double n, double f, double fov)
                 {0, 0, -(f+n)/ (f-n), -(2.0*f*n)/(f-n)},
                 {0, 0, -1, 0}
             };
-//    for(auto row: projectionMatrix)
-//    {
-//        for(auto element: row)
-//        {
-//            if(element == -0)
-//            {
-//                cout<<0<<" ";
-//                continue;
-//            }
-//            cout<<element<<" ";
-//        }
-//        cout<<endl;
-//    }
 }
 vector<vector<double>> Render::createObjectMatrix
 (vector<double> translate, vector<double> rotate, vector<double> scale)
@@ -614,6 +592,21 @@ vector<vector<double>> Render::createRotationMatrix(vector<double> rotate)
 
     return math.matrixMult(xRotation, math.matrixMult(yRotation, zRotation));
 }
+
+void Render::colorBackground()
+{
+    for (double x = 0; x < (vX + vW); x++)
+    {
+        for (double y = 0; y < (vY + vH); y++)
+        {
+            auto color = this->texture.getColor(x/(vX + vW), y/(vY+ vH));
+            glColor(color[0], color[1], color[2]);
+            glPoint(x,y);
+        }
+    }
+}
+
+Render::Render() {}
 
 
 

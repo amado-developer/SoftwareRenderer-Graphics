@@ -13,7 +13,7 @@ using namespace std;
 class Render
 {
     private:
-        unsigned char backgroundColor[3];
+    unsigned char backgroundColor[3];
         unsigned char pointColor[3];
         bool isPixels;
         int width;
@@ -34,7 +34,7 @@ class Render
         inline int glAdaptToViewportYCoordinates(int y);
         inline void swap(int &x, int &y);
         Math math;
-        Texture texture;
+        Texture texture = Texture(nullptr);
         tuple<double, double, double> light;
         vector<double>(*activeShader)(double &u, double &v, double &w,
                                       tuple<double, double> &tA, tuple<double, double> &tB, tuple<double, double> &tC,
@@ -45,9 +45,6 @@ class Render
         vector<vector<double>> viewportMatrix;
 
     public:
-        int counter = 1;
-        Render();
-        Render(Texture texture);
         void setTexture(Texture texture);
         void glClear(bool isAllWindow);
         void glFinish(char *filename);
@@ -67,9 +64,6 @@ class Render
                  tuple<double, double> &tA, tuple<double, double> &tB, tuple<double, double> &tC,
                  tuple<double, double, double> &nA, tuple<double, double, double> &nB, tuple<double, double, double> &nC,
                  Texture &texture, tuple<double, double, double> &light));
-//        void glTriangle(tuple<int, int, int> A, tuple<int, int, int> B, tuple<int, int, int> C, tuple<double, double> tA,
-//                    tuple<double, double> tB, tuple<double, double> tC, tuple<double, double, double> nA,
-//                    tuple<double, double, double> nB, tuple<double, double, double> nC);
         tuple<double, double, double>
         transform(tuple<double, double, double> vertex, vector<vector<double>> viewMatrix);
         tuple<double, double, double> directionTransform(tuple<double, double, double> vertex, vector<vector<double>> viewMatrix);
@@ -85,6 +79,9 @@ class Render
                     tuple<double, double, double> nC);
 
         vector<double> bbox(double quantity, ...);
+        void colorBackground();
+
+    Render();
 };
 
 

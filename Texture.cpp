@@ -47,13 +47,6 @@ void Texture::read()
             continue;
         }
 
-        if(y > 568)
-        {
-            if(x > 224)
-            {
-
-            }
-        }
 
         if(y == width)
         {
@@ -86,7 +79,27 @@ vector<double> Texture::getColor(double tx, double ty)
     }
     else
     {
-        return {0};
+        return {0,0,0};
     }
 }
+
+vector<double> Texture::getBackgroundColor(double tx, double ty)
+{
+    if(tx == 0.5625)
+    {
+
+    }
+    if(tx >= 0 && tx <= 1 && ty >= 0 && ty <= 1)
+    {
+        int x = tx * this->widht;
+        int y = ty * this->height;
+        return this->pixels[y][x];
+    }
+    else
+    {
+        return {0,0,0};
+    }
+}
+
+
 
