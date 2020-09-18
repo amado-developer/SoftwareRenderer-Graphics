@@ -593,18 +593,6 @@ vector<vector<double>> Render::createRotationMatrix(vector<double> rotate)
     return math.matrixMult(xRotation, math.matrixMult(yRotation, zRotation));
 }
 
-void Render::colorBackground()
-{
-    for (double x = 0; x < (vX + vW); x++)
-    {
-        for (double y = 0; y < (vY + vH); y++)
-        {
-            auto color = this->texture.getColor(x/(vX + vW), y/(vY+ vH));
-            glColor(color[0], color[1], color[2]);
-            glPoint(x,y);
-        }
-    }
-}
 
 Render::Render() {}
 

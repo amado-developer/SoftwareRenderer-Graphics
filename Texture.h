@@ -13,14 +13,18 @@ class Texture
     private:
         char *path;
         vector<vector<vector<double>>> pixels{};
+
         int widht;
         int height;
     public:
+        vector<vector<vector<unsigned char>>> backgroundPixels{};
         Texture(char* path);
         void read();
         vector<double> getColor(double tx, double ty);
 
     vector<double> getBackgroundColor(double tx, double ty);
+
+    void readBackground();
 };
 
 

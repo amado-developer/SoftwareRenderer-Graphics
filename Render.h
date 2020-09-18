@@ -26,7 +26,7 @@ class Render
 //        vector<double> bbox(int quantity, ...);
         std::vector<unsigned char> fileHeader();
         std::vector<unsigned char> infoHeader();
-        vector<vector<vector<unsigned char>>> framebuffer;
+
         vector<vector<double>> zbuffer;
         tuple<double, double, double> barycentric(tuple<double, double, double> A, tuple<double, double, double> B, tuple<double, double, double> C, tuple<double, double> P);
         void glPoint(int x, int y);
@@ -45,6 +45,7 @@ class Render
         vector<vector<double>> viewportMatrix;
 
     public:
+        vector<vector<vector<unsigned char>>> framebuffer;
         void setTexture(Texture texture);
         void glClear(bool isAllWindow);
         void glFinish(char *filename);
@@ -79,9 +80,10 @@ class Render
                     tuple<double, double, double> nC);
 
         vector<double> bbox(double quantity, ...);
-        void colorBackground();
 
     Render();
+
+    void colorBackground();
 };
 
 
