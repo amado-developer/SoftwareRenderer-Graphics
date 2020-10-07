@@ -17,17 +17,46 @@ using namespace std;
 class Shaders
 {
     public:
-    static vector<double>
-    gourad(double &u, double &v, double &w, tuple<double, double> &tA, tuple<double, double> &tB,
-           tuple<double, double> &tC,
-           tuple<double, double, double> &nA, tuple<double, double, double> &nB, tuple<double, double, double> &nC,
-           Texture &texture, tuple<double, double, double> &light);
 
     static vector<double>
     toon(double &u, double &v, double &w, tuple<double, double> &tA, tuple<double, double> &tB,
            tuple<double, double> &tC,
            tuple<double, double, double> &nA, tuple<double, double, double> &nB, tuple<double, double, double> &nC,
            Texture &texture, tuple<double, double, double> &light);
+
+    static vector<double>
+    phong(double &u, double &v, double &w, tuple<double, double> &tA, tuple<double, double> &tB,
+          tuple<double, double> &tC,
+          tuple<double, double, double> &nA, tuple<double, double, double> &nB, tuple<double, double, double> &nC,
+          Texture &texture, tuple<double, double, double> &light);
+
+
+
+    static vector<double> ultraviolet(double &u, double &v, double &w, tuple<double, double> &tA, tuple<double, double> &tB,
+                               tuple<double, double> &tC, tuple<double, double, double> &nA,
+                               tuple<double, double, double> &nB, tuple<double, double, double> &nC, Texture &texture,
+                               tuple<double, double, double> &light);
+
+
+    static vector<double> rainbow(double &u, double &v, double &w, tuple<double, double> &tA, tuple<double, double> &tB,
+                           tuple<double, double> &tC, tuple<double, double, double> &nA,
+                           tuple<double, double, double> &nB,
+                           tuple<double, double, double> &nC, Texture &texture, tuple<double, double, double> &light);
+
+    static vector<double> comic(double &u, double &v, double &w, tuple<double, double> &tA, tuple<double, double> &tB,
+                                  tuple<double, double> &tC, tuple<double, double, double> &nA,
+                                  tuple<double, double, double> &nB,
+                                  tuple<double, double, double> &nC, Texture &texture, tuple<double, double, double> &light);
+
+    static vector<double> gray(double &u, double &v, double &w, tuple<double, double> &tA, tuple<double, double> &tB,
+                                  tuple<double, double> &tC, tuple<double, double, double> &nA,
+                                  tuple<double, double, double> &nB,
+                                  tuple<double, double, double> &nC, Texture &texture, tuple<double, double, double> &light);
+
+    static vector<double> negative(double &u, double &v, double &w, tuple<double, double> &tA, tuple<double, double> &tB,
+                                  tuple<double, double> &tC, tuple<double, double, double> &nA,
+                                  tuple<double, double, double> &nB,
+                                  tuple<double, double, double> &nC, Texture &texture, tuple<double, double, double> &light);
 };
 
 

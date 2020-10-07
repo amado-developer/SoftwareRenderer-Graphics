@@ -60,7 +60,7 @@ class Render
         Texture getTexture();
         tuple<double, double, double> getLight();
         void setLight( tuple<double, double, double> light);
-        void setActiveRender(vector<double>(*activeShader)
+        void setActiveShader(vector<double>(*activeShader)
                 (double &u, double &v, double &w,
                  tuple<double, double> &tA, tuple<double, double> &tB, tuple<double, double> &tC,
                  tuple<double, double, double> &nA, tuple<double, double, double> &nB, tuple<double, double, double> &nC,

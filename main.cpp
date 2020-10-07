@@ -35,33 +35,38 @@ int main()
     r.createViewMatrix(make_tuple(0.0,0.0,0.0), make_tuple(0.0,0.0,0.0));
     r.createProjectionMatrix(0.1,1000.0,60.0);
     r.lookAt(modelPosition, make_tuple(2.0, 2.0, 0.0));
-    r.setLight(math.norm(make_tuple(0.0, 1.0, 1.0)));
+    r.setLight(math.norm(make_tuple(0.1, 0.0, 1.0)));
 
     Shaders s;
-    r.setActiveRender(&s.gourad);
-
     r.setTexture(back);
     r.framebuffer = back.backgroundPixels;
 
+    r.setActiveShader(&s.toon);
     r.setTexture(doctorStrange);
     r.load("../models/doctor.obj", {-1.0, -2.5,-12.0}, {3.0, 3.0, 3.0}, {0.0,0.0,0.0});
 
+
+    r.setActiveShader(&s.comic);
     r.setTexture(hulk);
     r.load("../models/hulk.obj", {4.0, -5.0, -5.0}, {1.0, 1.0, 1.0}, {-20.0,-140.0,0.0});
 
+    r.setActiveShader(&s.negative);
     r.setTexture(robot);
     r.load("../models/robot.obj", {-5.2, -5.5, -4.0}, {0.015, 0.015, 0.015}, {-30.0,115.0,5.0});
 
+    r.setActiveShader(&s.ultraviolet);
     r.setTexture(spiderman);
     r.load("../models/spiderman.obj", {3.0, 1.3, -10.0}, {1.0, 1.0, 1.0}, {0.0,-90.0,5.0});
 
+    r.setActiveShader(&s.gray);
     r.setTexture(cat);
     r.load("../models/cat.obj", {1.9, 1.19, -10.0}, {0.002, 0.002, 0.002}, {270.0,-7.5,90.0});
 
+    r.setActiveShader(&s.rainbow);
     r.setTexture(box);
     r.load("../models/box.obj", {-0.5, -2.5, -10.0}, {2.0, 2.0, 2.0}, {-30.0,0.0,0.0});
 
-    r.glFinish("obj.bmp");
+    r.glFinish("scene_shaders.bmp");
     return 0;
 }
 

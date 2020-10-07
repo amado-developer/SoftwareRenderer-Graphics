@@ -103,7 +103,7 @@ void Render::glClear(bool isAllWindow)
         }
     }
 }
-void Render::setActiveRender(vector<double>(*activeShader)
+void Render::setActiveShader(vector<double>(*activeShader)
         (double &u, double &v, double &w,
          tuple<double, double> &tA, tuple<double, double> &tB, tuple<double, double> &tC,
          tuple<double, double, double> &nA, tuple<double, double, double> &nB, tuple<double, double, double> &nC,
@@ -326,6 +326,7 @@ void Render::glTriangle(tuple<double, double, double> A, tuple<double, double, d
 
             if( z < zbuffer[x][y] && z<=1 && z>=-1)
             {
+
                 vector<double> color = this->activeShader(u, v, w, tA, tB, tC, nA, nB, nC,this->texture, this->light);
                 this->glColor(color.at(0), color.at(1), color.at(2));
                 glPoint(x, y);
